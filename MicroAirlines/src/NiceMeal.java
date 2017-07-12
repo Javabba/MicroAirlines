@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-
+// tjena Karl
 public class NiceMeal extends Meal {
 
 	static ArrayList<NiceMeal> nice = new ArrayList<NiceMeal>();
