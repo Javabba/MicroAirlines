@@ -89,12 +89,26 @@ public class Flight {
 
 
 	public void print() {
-		System.out.println("Flight "+code);
-		System.out.println("At "+departure.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")));
-		System.out.println("From : "+origin.getName());
-		System.out.println("To   : "+destination.getName());
+		System.out.println();
+		System.out.print("Flight "+code);
+		System.out.println(" "+departure.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")));
+		System.out.print("From : "+origin.getName());
+		System.out.println(" To: "+destination.getName());
 		System.out.println("Using a "+plane.getModel());
-		
+		System.out.println();
+		System.out.println("Seats First class");
+		System.out.println("----------------------------------------");
+		for (int i=0; i< firstclassBookings.length; i++) {
+			System.out.print("Seat "+(i+1)+" ");
+			if ( firstclassBookings[i] == null) System.out.println("<empty>"); else System.out.println(firstclassBookings[i].getPassengerName());			
+		}
+		System.out.println("\nSeats Economy class");
+		System.out.println("----------------------------------------");
+		for (int i=0; i< economyBookings.length; i++) {
+			System.out.print("Seat "+(i+1)+" ");
+			if ( economyBookings[i] == null) System.out.println("<empty>"); else System.out.println(economyBookings[i].getPassengerName());			
+		}
+		System.out.println("----------------------------------------");
 	}
 		
 

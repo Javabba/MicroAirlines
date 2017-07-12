@@ -5,6 +5,8 @@ public class Meal {
 	private String mealName;
 	private int price;	
 	
+	
+	
 	public Meal(TicketClassesEnum mealType, String mealName, int price) {
 		super();
 		this.mealType = mealType;
@@ -12,4 +14,25 @@ public class Meal {
 		this.price = price;
 	}
 
+
+
+	public TicketClassesEnum getMealType() {
+		return mealType;
+	}
+
+
+
+	public String getMealName() {
+		return mealName;
+	}
+
+
+
+	public int getPrice() {
+		return price;
+	}
+
+	
+	
+	
 }
