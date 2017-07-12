@@ -1,5 +1,3 @@
-import java.util.LinkedList;
-
 public class Meal {
 	
 	String MealName;
