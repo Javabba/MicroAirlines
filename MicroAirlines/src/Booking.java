@@ -11,10 +11,10 @@ public class Booking {
 	private int mealPrice;
 	
 	private boolean wantToEat;
-	private int selectedMeal;
+	private Meal selectedMeal;
 	
 	
-	public Booking(String name, Flight flight, TicketClassesEnum ticketClass, int flightPrice, int mealPrice, boolean wantToEat, int selectedMeal) {
+	public Booking(String name, Flight flight, TicketClassesEnum ticketClass, int flightPrice, int mealPrice, boolean wantToEat, Meal selectedMeal) {
 		passengerName = name;
 		bookingNr=getNewBookingNr();
 		this.ticketClass = ticketClass;
@@ -77,7 +77,7 @@ public class Booking {
 
 
 
-	public int getSelectedMeal() {
+	public Meal getSelectedMeal() {
 		return selectedMeal;
 	}
 

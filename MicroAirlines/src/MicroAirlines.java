@@ -1,20 +1,46 @@
+import java.util.ArrayList;
 
 public class MicroAirlines {
+	
+	static ArrayList<Flight> flights = new ArrayList<Flight>();
 
+	
 	public static void main(String[] args) {
 
-		Plane plan1=new Plane(5, 5, "DC0");
-		//plan1.print();
+		Plane plan1=new Plane(6, 4, "DC0");
+		Plane plan2=new Plane(10, 8, "DC1");
+		Plane plan3=new Plane(8, 8, "DC2");
 		
-		Airport origin = new Airport("Stockholm", "ARN");
-		Airport destination = new Airport("Oslo", "GAR");
+		Airport ap1 = new Airport("Stockholm", "ARN");
+		Airport ap2 = new Airport("Oslo", "OSL");
+		Airport ap3 = new Airport("Göteborg", "GOT");
 		
-		//origin.print();
-		//destination.print();
-				
 		
-		Flight f1 = new Flight("SK156", origin, destination, "2017-08-01 08:00", plan1);
-		f1.print();
+		flights.add(new Flight("SK156", ap1, ap2, "2017-08-01 08:00", plan1));		
+		flights.add(new Flight("SK157", ap2, ap1, "2017-08-01 18:00", plan1));
+		flights.add(new Flight("SK212", ap1, ap3, "2017-08-01 10:00", plan2));
+		flights.add(new Flight("SK213", ap3, ap1, "2017-08-01 16:00", plan2));
+		flights.add(new Flight("SK378", ap2, ap3, "2017-08-01 12:00", plan3));
+		flights.add(new Flight("SK379", ap3, ap2, "2017-08-01 20:00", plan3));
+		
+		flights.add(new Flight("SK158", ap1, ap2, "2017-08-02 08:00", plan1));		
+		flights.add(new Flight("SK159", ap2, ap1, "2017-08-02 18:00", plan1));
+		flights.add(new Flight("SK214", ap1, ap3, "2017-08-02 10:00", plan2));
+		flights.add(new Flight("SK215", ap3, ap1, "2017-08-02 16:00", plan2));
+		flights.add(new Flight("SK380", ap2, ap3, "2017-08-02 12:00", plan3));
+		flights.add(new Flight("SK381", ap3, ap2, "2017-08-02 20:00", plan3));		
+		
+		flights.add(new Flight("SK160", ap1, ap2, "2017-08-03 08:00", plan1));		
+		flights.add(new Flight("SK161", ap2, ap1, "2017-08-03 18:00", plan1));
+		flights.add(new Flight("SK216", ap1, ap3, "2017-08-03 10:00", plan2));
+		flights.add(new Flight("SK217", ap3, ap1, "2017-08-03 16:00", plan2));
+		flights.add(new Flight("SK382", ap2, ap3, "2017-08-03 12:00", plan3));
+		flights.add(new Flight("SK383", ap3, ap2, "2017-08-03 20:00", plan3));	
+		
+		
+		
+		
+		flights.get(0).print();
 		
 		//while(true);
 		
