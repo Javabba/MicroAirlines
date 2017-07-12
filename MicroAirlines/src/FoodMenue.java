@@ -10,9 +10,9 @@ public class FoodMenue {
 	public FoodMenue() {
 		super();
 		
-		mealListEconomy.add(new Meal(TicketClassesEnum.ECONOMY, "Meatballs", 50));
+//		mealListEconomy.add(new Meal(TicketClassesEnum.ECONOMY, "Meatballs", 50));
 		
-		mealListFirstclass.add(new Meal(TicketClassesEnum.FIRSTCLASS, "Filet Mignon", 195));		
+//		mealListFirstclass.add(new Meal(TicketClassesEnum.FIRSTCLASS, "Filet Mignon", 195));		
 		
 		
 	}
