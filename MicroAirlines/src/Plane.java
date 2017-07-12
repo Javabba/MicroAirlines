@@ -1,6 +1,7 @@
 
 public class Plane {
 	
+
 	private String model;
 	private int economySeats;
 	private int firstclassSeats;
@@ -26,10 +27,12 @@ public class Plane {
 		this.economySeats=numEconomySeats;
 		this.firstclassSeats=numFirstclassSeats;
 		this.model=model;
+ 
+	}
 	}
 	
 	public void print() {
 		System.out.println("I am a "+model+" I take "+economySeats+ " in Economy class and "+firstclassSeats+" in First Class.");
 	}
 
-}
+

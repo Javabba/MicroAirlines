@@ -18,6 +18,9 @@ public class Airport {
 	public void print() {
 		System.out.println("Airport is called "+name+"("+code+")");
 		
+		
+		
+		
 	}
 	
 
