@@ -1,12 +1,7 @@
 
 public class Plane {
 	
-<<<<<<< HEAD
 
-		
-		
-		
-=======
 	private String model;
 	private int economySeats;
 	private int firstclassSeats;
@@ -32,7 +27,8 @@ public class Plane {
 		this.economySeats=numEconomySeats;
 		this.firstclassSeats=numFirstclassSeats;
 		this.model=model;
->>>>>>> branch 'master' of https://github.com/kghultland/MicroAirlines.git
+ 
+	}
 	}
 
 
