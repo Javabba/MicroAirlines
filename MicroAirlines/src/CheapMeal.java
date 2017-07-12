@@ -9,15 +9,15 @@ public class CheapMeal extends Meal{
 	}
 	
 	public String getMealName() {
-		return MealName;
+		return mealName;
 	
 	}
 
 	public void setMealName(String mealName) {
-		MealName = mealName;
+		mealName = mealName;
 	}
 
-	public double getPrice() {
+	public int getPrice() {
 		return price;
 	}
 
