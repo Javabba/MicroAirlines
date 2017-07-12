@@ -27,5 +27,9 @@ public class Plane {
 		this.firstclassSeats=numFirstclassSeats;
 		this.model=model;
 	}
+	
+	public void print() {
+		System.out.println("I am a "+model+" I take "+economySeats+ " in Economy class and "+firstclassSeats+" in First Class.");
+	}
 
 }
