@@ -1,15 +1,17 @@
+import java.util.LinkedList;
 
 public class Meal {
 	
-	private TicketClassesEnum mealType;
-	private String mealName;
-	private int price;	
+	String MealName;
+	int price;
 	
-	public Meal(TicketClassesEnum mealType, String mealName, int price) {
-		super();
-		this.mealType = mealType;
-		this.mealName = mealName;
+	public Meal(String mealName, int price) {
+		MealName = mealName;
 		this.price = price;
+		
 	}
-
+	public String getMeal() {
+		return MealName;
+	}
+	
 }
