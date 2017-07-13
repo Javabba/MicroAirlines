@@ -107,13 +107,15 @@ public class Flight {
 		System.out.println("----------------------------------------");
 		for (int i=0; i< firstclassBookings.length; i++) {
 			System.out.print("Seat "+(i+1)+" ");
-			if ( firstclassBookings[i] == null) System.out.println("<empty>"); else System.out.println(firstclassBookings[i].getPassengerName());			
+			if ( firstclassBookings[i] == null) System.out.println("<empty>"); 
+			else System.out.println(firstclassBookings[i].getPassengerName());			
 		}
 		System.out.println("\nSeats Economy class");
 		System.out.println("----------------------------------------");
 		for (int i=0; i< economyBookings.length; i++) {
 			System.out.print("Seat "+(i+1)+" ");
-			if ( economyBookings[i] == null) System.out.println("<empty>"); else System.out.println(economyBookings[i].getPassengerName());			
+			if ( economyBookings[i] == null) System.out.println("<empty>"); 
+			else System.out.println(economyBookings[i].getPassengerName());			
 		}
 		System.out.println("----------------------------------------");
 	}

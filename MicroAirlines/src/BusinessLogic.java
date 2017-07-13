@@ -18,8 +18,18 @@ public class BusinessLogic {
 		
 		printFlightList();
 		
-		System.out.println("What flight do you want to book?");
-		int flightIdx= Integer.parseInt(in.nextLine());
+		
+		int flightIdx=-1;
+		
+		do {
+			try {
+				System.out.println("What flight do you want to book?");
+				flightIdx = Integer.parseInt(in.nextLine());
+				break;
+			} catch (Exception e) {
+				System.out.println("Invalid number");
+			}
+		} while (true);
 		
 		String temp;
 		do {
@@ -35,9 +45,19 @@ public class BusinessLogic {
 		
 		
 			
-		newBooking = new Booking(name, MicroAirlines.flights.get(flightIdx), ticket, 0, 0, false, null);
+		newBooking = new Booking(name, MicroAirlines.flights.get(flightIdx), ticket, false, null);
+		
 		MicroAirlines.flights.get(flightIdx).book(newBooking);
+		
+		
+		
+		System.out.println("\n\nBooking reference="+newBooking.getBookingNr());
 			
+		
+	}
+	
+	public static void doListFlights() {
+		// TODO Auto-generated method stub
 		
 	}
 	
@@ -50,6 +70,9 @@ public class BusinessLogic {
 		
 		
 	}
+
+
+
 	
 	
 

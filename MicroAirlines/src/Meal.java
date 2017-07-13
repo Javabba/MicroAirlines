@@ -7,8 +7,8 @@ public class Meal {
 
 	public Meal(String mealName, int price) {
 		this.mealName = mealName;
+		this.price = price;		
 
-		
 	}
 
 

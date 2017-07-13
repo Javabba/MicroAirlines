@@ -56,7 +56,7 @@ public static void mainMenu(){
 			
 		break;
 		case "1":
-//				BusinessLogic.doBooking();
+				BusinessLogic.doBooking();
 		break;
 		
 		case "2": 
@@ -72,7 +72,7 @@ public static void mainMenu(){
 		public static void personelMenu() {
 			System.out.println("|------------------------MICRO AIRLINES-----------------------|");
 			System.out.println("|...............Flight or fight is not a question.............|");
-			System.out.println("|         1.) List Flight.      |       4.) Add Flight        |");
+			System.out.println("|         1.) List Flight       |       4.) Add Flight        |");
 			System.out.println("|         2.) List Booking      |       5.) Add Plane    	  |");
 			System.out.println("|         3.) Profit     	    |       6.) List Booking      |");
 			System.out.println("|                        0.) Main Menu.                       |");
@@ -86,7 +86,7 @@ public static void mainMenu(){
 				
 			break;
 			case "1":
-	//				BusinessLogic.Karl();
+					BusinessLogic.doListFlights();
 			break;
 			
 			case "2": 

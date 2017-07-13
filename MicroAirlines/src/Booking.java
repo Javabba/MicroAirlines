@@ -1,3 +1,4 @@
+import java.util.Random;
 
 public class Booking {
 	
@@ -14,20 +15,34 @@ public class Booking {
 	private Meal selectedMeal;
 	
 	
-	public Booking(String name, Flight flight, TicketClassesEnum ticketClass, int flightPrice, int mealPrice, boolean wantToEat, Meal selectedMeal) {
+	public Booking(String name, Flight flight, TicketClassesEnum ticketClass,   boolean wantToEat, Meal selectedMeal) {
 		passengerName = name;
 		bookingNr=getNewBookingNr();
 		this.ticketClass = ticketClass;
 		this.flight=flight;
-		this.flightPrice=flightPrice;
-		this.mealPrice= mealPrice;
+		this.flightPrice=ticketClass.price();
+	
 		this.wantToEat = wantToEat;
-		this.selectedMeal = selectedMeal;		
+		this.selectedMeal = selectedMeal;
+		if (selectedMeal==null)
+			this.mealPrice= 0;
+		else
+			this.mealPrice=selectedMeal.getPrice();
 	}
 	
 	
 	private String getNewBookingNr() {		
-		return "XX1YY";
+		String bNR="";
+		
+		final String alphabet = "0123456789ABCDEFGHIJKLMNOPXYZ";
+        final int N = alphabet.length();
+    
+         Random r = new Random();
+          
+         for (int i = 0; i < 6; i++) {            
+             bNR+=alphabet.charAt(r.nextInt(N));        
+         }
+         return bNR;
 	}
 
 
