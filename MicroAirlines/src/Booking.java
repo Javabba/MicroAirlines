@@ -1,3 +1,4 @@
+import java.util.Random;
 
 public class Booking {
 	
@@ -31,7 +32,17 @@ public class Booking {
 	
 	
 	private String getNewBookingNr() {		
-		return "XX1YY";
+		String bNR="";
+		
+		final String alphabet = "0123456789ABCDEFGHIJKLMNOPXYZ";
+        final int N = alphabet.length();
+    
+         Random r = new Random();
+          
+         for (int i = 0; i < 6; i++) {            
+             bNR+=alphabet.charAt(r.nextInt(N));        
+         }
+         return bNR;
 	}
 
 
