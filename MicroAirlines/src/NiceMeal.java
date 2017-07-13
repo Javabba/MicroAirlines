@@ -6,6 +6,10 @@ public class NiceMeal extends Meal {
 
 	public NiceMeal(String mealName, int price) {
 		super(mealName, price);
+		nice.add(1,new NiceMeal("GooseliverPie with Caviar and really expensive sauce", 999));
+		nice.add(2,new NiceMeal("Cognacs Flambered Grouse with Hunter Potatoes", 499));
+		nice.add(3,new NiceMeal("Sleep Smoked Reindeer Sadle med Västerbotten Cheese Sause and Dollarpotatoes", 599));
+		nice.add(4,new NiceMeal("LobsterSoup with garlic bread and champagne", 399));
 
 	}
 

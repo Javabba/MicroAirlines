@@ -6,7 +6,7 @@ public class Meal {
 	
 
 	public Meal(String mealName, int price) {
-		mealName = mealName;
+		this.mealName = mealName;
 
 		
 	}
@@ -20,6 +20,11 @@ public class Meal {
 
 	public int getPrice() {
 		return price;
+	}
+	
+	@Override
+	public String toString() {
+		return mealName + ": SEK " + price;
 	}
 
 	
