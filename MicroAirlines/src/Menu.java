@@ -4,7 +4,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Menu {
-//	Hej Karl!
+
 	static Scanner in = new Scanner(System.in);
 	String val = in.nextLine();
 	
