@@ -51,6 +51,11 @@ public class BusinessLogic {
 		
 	}
 	
+	public static void doListFlights() {
+		// TODO Auto-generated method stub
+		
+	}
+	
 	
 	static public void printFlightList() {
 		for (int i=0; i< MicroAirlines.flights.size(); i++) {
@@ -60,6 +65,9 @@ public class BusinessLogic {
 		
 		
 	}
+
+
+
 	
 	
 
