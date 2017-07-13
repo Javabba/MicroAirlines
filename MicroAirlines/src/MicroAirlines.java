@@ -54,10 +54,7 @@ public class MicroAirlines {
 		flights.get(0).book(b5);
 		flights.get(0).book(b6);
 		flights.get(0).book(b7);
-		flights.get(0).book(b8);
-
-		
-		
+		flights.get(0).book(b8);		
 		
 		flights.get(0).print();
 		
