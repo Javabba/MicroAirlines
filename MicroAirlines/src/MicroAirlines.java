@@ -58,7 +58,13 @@ public class MicroAirlines {
 		
 		flights.get(0).print();
 		
+		BusinessLogic.doBooking();
+		
+		flights.get(0).print();
+		
 		//while(true);
+		
+		//Menu.mainMenu();
 		
 
 	}

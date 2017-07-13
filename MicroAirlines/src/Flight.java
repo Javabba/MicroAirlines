@@ -86,7 +86,14 @@ public class Flight {
 	}
 
 
-
+	@Override
+	public String toString() {
+		String out = departure.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"))+" "+code+" "+ 
+						origin.getName()+" to "+destination.getName();
+		
+		return out;
+	}
+	
 
 	public void print() {
 		System.out.println();
