@@ -20,7 +20,7 @@ public static void mainMenu(){
 		String val = in.nextLine();
 		switch (val) {
 		default:
-			System.out.println("Chose 1.) or 2.) please");
+			System.out.println("Chose 1.) or 2.) please.");
 			mainMenu();
 			
 			
