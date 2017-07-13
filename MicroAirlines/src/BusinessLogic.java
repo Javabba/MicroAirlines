@@ -45,7 +45,7 @@ public class BusinessLogic {
 		
 		
 			
-		newBooking = new Booking(name, MicroAirlines.flights.get(flightIdx), ticket,  0, false, null);
+		newBooking = new Booking(name, MicroAirlines.flights.get(flightIdx), ticket, false, null);
 		MicroAirlines.flights.get(flightIdx).book(newBooking);
 			
 		

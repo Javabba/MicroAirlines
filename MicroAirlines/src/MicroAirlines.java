@@ -38,14 +38,14 @@ public class MicroAirlines {
 		flights.add(new Flight("SK383", ap3, ap2, "2017-08-03 20:00", plan3));	
 		
 		
-		Booking b1 = new Booking("Anders Andersson", flights.get(0), TicketClassesEnum.ECONOMY,  0, false, null);
-		Booking b2 = new Booking("Bertil Bo", flights.get(0), TicketClassesEnum.ECONOMY , 0, false, null);
-		Booking b3 = new Booking("Conrad Canin", flights.get(0), TicketClassesEnum.FIRSTCLASS, 0, false, null);
-		Booking b4 = new Booking("David Duke", flights.get(0), TicketClassesEnum.ECONOMY , 0, false, null);
-		Booking b5 = new Booking("Erik Eriksson", flights.get(0), TicketClassesEnum.ECONOMY , 0, false, null);
-		Booking b6 = new Booking("Filip Filipsson", flights.get(0), TicketClassesEnum.FIRSTCLASS, 0, false, null);
-		Booking b7 = new Booking("Gustaf Gustavsson", flights.get(0), TicketClassesEnum.ECONOMY, 0, false, null);
-		Booking b8 = new Booking("Helge Helgesson", flights.get(0), TicketClassesEnum.FIRSTCLASS, 0, false, null);
+		Booking b1 = new Booking("Anders Andersson", flights.get(0), TicketClassesEnum.ECONOMY, false, null);
+		Booking b2 = new Booking("Bertil Bo", flights.get(0), TicketClassesEnum.ECONOMY , false, null);
+		Booking b3 = new Booking("Conrad Canin", flights.get(0), TicketClassesEnum.FIRSTCLASS, false, null);
+		Booking b4 = new Booking("David Duke", flights.get(0), TicketClassesEnum.ECONOMY , false, null);
+		Booking b5 = new Booking("Erik Eriksson", flights.get(0), TicketClassesEnum.ECONOMY , false, null);
+		Booking b6 = new Booking("Filip Filipsson", flights.get(0), TicketClassesEnum.FIRSTCLASS, false, null);
+		Booking b7 = new Booking("Gustaf Gustavsson", flights.get(0), TicketClassesEnum.ECONOMY, false, null);
+		Booking b8 = new Booking("Helge Helgesson", flights.get(0), TicketClassesEnum.FIRSTCLASS,  false, null);
 		
 		flights.get(0).book(b1); 
 		flights.get(0).book(b2);

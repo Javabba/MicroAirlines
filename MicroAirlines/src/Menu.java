@@ -56,7 +56,7 @@ public static void mainMenu(){
 			
 		break;
 		case "1":
-//				BusinessLogic.doBooking();
+				BusinessLogic.doBooking();
 		break;
 		
 		case "2": 
