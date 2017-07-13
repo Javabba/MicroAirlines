@@ -6,8 +6,6 @@ public class CheapMeal extends Meal{
 
 	public CheapMeal(String mealName, int price) {
 		super(mealName, price);
-		cheap.add(1,new CheapMeal("Pigwash with Water and Bread", 99));
-		cheap.add(2,new CheapMeal("VeganSallad", 79));
 	}
 	
 	public String getMealName() {

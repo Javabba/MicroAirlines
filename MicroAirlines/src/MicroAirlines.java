@@ -37,6 +37,15 @@ public class MicroAirlines {
 		flights.add(new Flight("SK382", ap2, ap3, "2017-08-03 12:00", plan3));
 		flights.add(new Flight("SK383", ap3, ap2, "2017-08-03 20:00", plan3));	
 		
+		NiceMeal.nice.add(new NiceMeal("GooseliverPie with Caviar and really expensive sauce", 999));
+		NiceMeal.nice.add(new NiceMeal("Cognacs Flambered Grouse with Hunter Potatoes", 499));
+		NiceMeal.nice.add(new NiceMeal("Sleep Smoked Reindeer Sadle med Västerbotten Cheese Sause and Dollarpotatoes", 599));
+		NiceMeal.nice.add(new NiceMeal("LobsterSoup with garlic bread and champagne", 399));
+
+		CheapMeal.cheap.add(new CheapMeal("Pigwash with Water and Bread", 99));
+		CheapMeal.cheap.add(new CheapMeal("VeganSallad", 79));
+		
+		
 		
 		Booking b1 = new Booking("Anders Andersson", flights.get(0), TicketClassesEnum.ECONOMY, false, null);
 		Booking b2 = new Booking("Bertil Bo", flights.get(0), TicketClassesEnum.ECONOMY , false, null);
@@ -58,9 +67,20 @@ public class MicroAirlines {
 		
 		flights.get(0).print();
 		
-		BusinessLogic.doBooking();
+		System.out.println("\nEkonomi mat");
+		for (int i=0; i<CheapMeal.cheap.size(); i++)
+			System.out.println(i+" "+ CheapMeal.cheap.get(i).toString());
 		
-		flights.get(0).print();
+		System.out.println("\nBra mat");
+		for (int i=0; i<NiceMeal.nice.size(); i++)
+			System.out.println(i+" "+ NiceMeal.nice.get(i).toString());		
+		
+		//BusinessLogic.doBooking();
+		
+		//flights.get(0).print();
+		
+		
+		
 		
 		//while(true);
 		
