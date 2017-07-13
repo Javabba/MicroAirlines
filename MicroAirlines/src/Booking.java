@@ -14,12 +14,12 @@ public class Booking {
 	private Meal selectedMeal;
 	
 	
-	public Booking(String name, Flight flight, TicketClassesEnum ticketClass, int flightPrice, int mealPrice, boolean wantToEat, Meal selectedMeal) {
+	public Booking(String name, Flight flight, TicketClassesEnum ticketClass,  int mealPrice, boolean wantToEat, Meal selectedMeal) {
 		passengerName = name;
 		bookingNr=getNewBookingNr();
 		this.ticketClass = ticketClass;
 		this.flight=flight;
-		this.flightPrice=flightPrice;
+		this.flightPrice=ticketClass.price();
 		this.mealPrice= mealPrice;
 		this.wantToEat = wantToEat;
 		this.selectedMeal = selectedMeal;		
