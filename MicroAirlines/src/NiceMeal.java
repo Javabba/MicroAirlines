@@ -14,7 +14,7 @@ public class NiceMeal extends Meal {
 	}
 
 	public void setMealName(String mealName) {
-		mealName = mealName;
+		this.mealName = mealName;
 	}
 
 	public int getPrice() {

@@ -110,6 +110,43 @@ public class Flight {
 		}
 		System.out.println("----------------------------------------");
 	}
+
+
+	private int firstFree(Booking[] b) {
+		for (int i=0; i<b.length; i++)
+			if (b[i]==null)
+				return i;
+		
+		return -1;
+	}
+	
+	public boolean book(Booking newBooking) {
+		int seat=-1;
+		
+		if (newBooking.getTicketClass()==TicketClassesEnum.ECONOMY) {
+			seat = firstFree(economyBookings);
+			if (seat>=0) 
+				economyBookings[seat]=newBooking;
+			else
+				return false;
+		} else {
+			seat = firstFree(firstclassBookings);
+			if (seat>=0) 
+				firstclassBookings[seat]=newBooking;
+			else
+				return false;
+		}
+			
+		
+		return true;
+	}
+	
+
+
+
+
+
+
 		
 
 	
