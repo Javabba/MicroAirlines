@@ -57,6 +57,7 @@ public static void mainMenu(){
 		break;
 		case "1":
 				BusinessLogic.doBooking();
+				customerMenu();
 		break;
 		
 		case "2": 
@@ -87,6 +88,7 @@ public static void mainMenu(){
 			break;
 			case "1":
 					BusinessLogic.doListFlights();
+					personelMenu();
 			break;
 			
 			case "2": 

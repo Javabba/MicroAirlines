@@ -44,20 +44,91 @@ public class BusinessLogic {
 			ticket = TicketClassesEnum.FIRSTCLASS;
 		
 		
+		do {
+			System.out.println("Do you want to order food?");
+			temp = in.nextLine().substring(0,1).toUpperCase();
+		} while ( (!temp.equals("Y"))  && !temp.equals("N")) ;
+		
+		boolean wantToEat=false;
+		Meal selectedMeal=null;
+		
+		if (temp.equals("Y")) { 
+			wantToEat=true;		
+			printFoodMenu(ticket);
+
+			int mealIdx=-1;
 			
-		newBooking = new Booking(name, MicroAirlines.flights.get(flightIdx), ticket, false, null);
+			do {
+				try {
+					System.out.println("What food do you want to order?");
+					mealIdx = Integer.parseInt(in.nextLine());
+					break;
+				} catch (Exception e) {
+					System.out.println("Invalid number");
+				}
+			} while (true);
+			
+			if (ticket==TicketClassesEnum.ECONOMY) 
+				selectedMeal=CheapMeal.cheap.get(mealIdx);
+			else
+				selectedMeal=NiceMeal.nice.get(mealIdx);
+			
+		};
+				
+		
+		newBooking = new Booking(name, MicroAirlines.flights.get(flightIdx), ticket, wantToEat, selectedMeal);
 		
 		MicroAirlines.flights.get(flightIdx).book(newBooking);
 		
 		
 		
-		System.out.println("\n\nBooking reference="+newBooking.getBookingNr());
+		//System.out.println("\n\nBooking reference="+newBooking.getBookingNr());
+		
+		printTicket(newBooking);
+		
 			
 		
 	}
 	
+	private static void printTicket(Booking newBooking) {
+		// TODO Auto-generated method stub ///////////////////////////////////////////////////////////////
+		
+		
+		
+	}
+
+
+	private static void printFoodMenu(TicketClassesEnum ticket) {
+		switch(ticket) {
+		case ECONOMY:
+			for (int i=0; i<CheapMeal.cheap.size(); i++)
+				System.out.println(i+" "+ CheapMeal.cheap.get(i).toString());
+			break;
+		case FIRSTCLASS:
+			for (int i=0; i<NiceMeal.nice.size(); i++)
+				System.out.println(i+" "+ NiceMeal.nice.get(i).toString());		
+			break;
+		}
+		
+	}
+
 	public static void doListFlights() {
-		// TODO Auto-generated method stub
+		
+	BusinessLogic.printFlightList();
+		
+		int flightIdx=-1;
+		
+		do {
+			try {
+				System.out.println("What flight do you want to print?");
+				flightIdx = Integer.parseInt(in.nextLine());
+				break;
+			} catch (Exception e) {
+				System.out.println("Invalid number");
+			}
+		} while (true);
+		
+		MicroAirlines.flights.get(flightIdx).print();
 		
 	}
 	

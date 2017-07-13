@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class MicroAirlines {
 	
-	static ArrayList<Flight> flights = new ArrayList<Flight>();
+	public static ArrayList<Flight> flights = new ArrayList<Flight>();
 
 	
 	public static void main(String[] args) {
@@ -23,19 +23,19 @@ public class MicroAirlines {
 		flights.add(new Flight("SK378", ap2, ap3, "2017-08-01 12:00", plan3));
 		flights.add(new Flight("SK379", ap3, ap2, "2017-08-01 20:00", plan3));
 		
-		flights.add(new Flight("SK158", ap1, ap2, "2017-08-02 08:00", plan1));		
-		flights.add(new Flight("SK159", ap2, ap1, "2017-08-02 18:00", plan1));
-		flights.add(new Flight("SK214", ap1, ap3, "2017-08-02 10:00", plan2));
-		flights.add(new Flight("SK215", ap3, ap1, "2017-08-02 16:00", plan2));
-		flights.add(new Flight("SK380", ap2, ap3, "2017-08-02 12:00", plan3));
-		flights.add(new Flight("SK381", ap3, ap2, "2017-08-02 20:00", plan3));		
+//		flights.add(new Flight("SK158", ap1, ap2, "2017-08-02 08:00", plan1));		
+//		flights.add(new Flight("SK159", ap2, ap1, "2017-08-02 18:00", plan1));
+//		flights.add(new Flight("SK214", ap1, ap3, "2017-08-02 10:00", plan2));
+//		flights.add(new Flight("SK215", ap3, ap1, "2017-08-02 16:00", plan2));
+//		flights.add(new Flight("SK380", ap2, ap3, "2017-08-02 12:00", plan3));
+//		flights.add(new Flight("SK381", ap3, ap2, "2017-08-02 20:00", plan3));		
 		
-		flights.add(new Flight("SK160", ap1, ap2, "2017-08-03 08:00", plan1));		
-		flights.add(new Flight("SK161", ap2, ap1, "2017-08-03 18:00", plan1));
-		flights.add(new Flight("SK216", ap1, ap3, "2017-08-03 10:00", plan2));
-		flights.add(new Flight("SK217", ap3, ap1, "2017-08-03 16:00", plan2));
-		flights.add(new Flight("SK382", ap2, ap3, "2017-08-03 12:00", plan3));
-		flights.add(new Flight("SK383", ap3, ap2, "2017-08-03 20:00", plan3));	
+//		flights.add(new Flight("SK160", ap1, ap2, "2017-08-03 08:00", plan1));		
+//		flights.add(new Flight("SK161", ap2, ap1, "2017-08-03 18:00", plan1));
+//		flights.add(new Flight("SK216", ap1, ap3, "2017-08-03 10:00", plan2));
+//		flights.add(new Flight("SK217", ap3, ap1, "2017-08-03 16:00", plan2));
+//		flights.add(new Flight("SK382", ap2, ap3, "2017-08-03 12:00", plan3));
+//		flights.add(new Flight("SK383", ap3, ap2, "2017-08-03 20:00", plan3));	
 		
 		NiceMeal.nice.add(new NiceMeal("GooseliverPie with Caviar and really expensive sauce", 999));
 		NiceMeal.nice.add(new NiceMeal("Cognacs Flambered Grouse with Hunter Potatoes", 499));
@@ -49,9 +49,9 @@ public class MicroAirlines {
 		
 		Booking b1 = new Booking("Anders Andersson", flights.get(0), TicketClassesEnum.ECONOMY, false, null);
 		Booking b2 = new Booking("Bertil Bo", flights.get(0), TicketClassesEnum.ECONOMY , false, null);
-		Booking b3 = new Booking("Conrad Canin", flights.get(0), TicketClassesEnum.FIRSTCLASS, false, null);
+		Booking b3 = new Booking("Conrad Canin", flights.get(0), TicketClassesEnum.FIRSTCLASS, true, NiceMeal.nice.get(1));
 		Booking b4 = new Booking("David Duke", flights.get(0), TicketClassesEnum.ECONOMY , false, null);
-		Booking b5 = new Booking("Erik Eriksson", flights.get(0), TicketClassesEnum.ECONOMY , false, null);
+		Booking b5 = new Booking("Erik Eriksson", flights.get(0), TicketClassesEnum.ECONOMY , true, CheapMeal.cheap.get(1));
 		Booking b6 = new Booking("Filip Filipsson", flights.get(0), TicketClassesEnum.FIRSTCLASS, false, null);
 		Booking b7 = new Booking("Gustaf Gustavsson", flights.get(0), TicketClassesEnum.ECONOMY, false, null);
 		Booking b8 = new Booking("Helge Helgesson", flights.get(0), TicketClassesEnum.FIRSTCLASS,  false, null);
@@ -65,16 +65,11 @@ public class MicroAirlines {
 		flights.get(0).book(b7);
 		flights.get(0).book(b8);		
 		
-		flights.get(0).print();
+		//flights.get(0).print();
 		
-		System.out.println("\nEkonomi mat");
-		for (int i=0; i<CheapMeal.cheap.size(); i++)
-			System.out.println(i+" "+ CheapMeal.cheap.get(i).toString());
+		//BusinessLogic.printFlightList();
 		
-		System.out.println("\nBra mat");
-		for (int i=0; i<NiceMeal.nice.size(); i++)
-			System.out.println(i+" "+ NiceMeal.nice.get(i).toString());		
-		
+	
 		//BusinessLogic.doBooking();
 		
 		//flights.get(0).print();
@@ -84,7 +79,7 @@ public class MicroAirlines {
 		
 		//while(true);
 		
-		//Menu.mainMenu();
+		Menu.mainMenu();
 		
 
 	}
