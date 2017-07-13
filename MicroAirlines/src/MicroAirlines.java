@@ -83,5 +83,9 @@ public class MicroAirlines {
 		
 
 	}
+	
+	public static String fStr(String in, int len) {
+		return (in+"                                                            ").substring(0, len);
+	}
 
 }

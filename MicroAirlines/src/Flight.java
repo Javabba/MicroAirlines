@@ -1,6 +1,7 @@
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+
 public class Flight {
 	private String code;
 	private Airport origin;
@@ -106,10 +107,10 @@ public class Flight {
 		System.out.println("Seats First class");
 		System.out.println("----------------------------------------");
 		for (int i=0; i< firstclassBookings.length; i++) {
-			System.out.print("Seat "+(i+1)+" ");
-			if ( firstclassBookings[i] == null) System.out.println("<empty>"); 
+			System.out.print(fStr("Seat "+(i+1)+" ", 10));
+			if ( firstclassBookings[i] == null) System.out.println(fStr("<empty>",25)); 
 			else {
-				System.out.print(firstclassBookings[i].getPassengerName());		
+				System.out.print(fStr(firstclassBookings[i].getPassengerName(),25));		
 
 				if (firstclassBookings[i].isWantToEat()) {
 					System.out.println(" < "+firstclassBookings[i].getSelectedMeal()+" >");
@@ -121,10 +122,10 @@ public class Flight {
 		System.out.println("\nSeats Economy class");
 		System.out.println("----------------------------------------");
 		for (int i=0; i< economyBookings.length; i++) {
-			System.out.print("Seat "+(i+1)+" ");
-			if ( economyBookings[i] == null) System.out.println("<empty>"); 
+			System.out.print(fStr("Seat "+(i+1)+" ", 10));
+			if ( economyBookings[i] == null) System.out.println(fStr("<empty>", 25)); 
 			else {
-				System.out.print(economyBookings[i].getPassengerName());
+				System.out.print(fStr(economyBookings[i].getPassengerName(),25));
 				
 				if (economyBookings[i].isWantToEat()) {
 					System.out.println(" < "+economyBookings[i].getSelectedMeal()+" >");
@@ -165,6 +166,9 @@ public class Flight {
 		return true;
 	}
 	
+	public static String fStr(String in, int len) {
+		return (in+"                                                            ").substring(0, len);
+	}
 
 
 
