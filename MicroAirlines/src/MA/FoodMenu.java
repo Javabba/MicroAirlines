@@ -1,3 +1,4 @@
+package MA;
 
 public class FoodMenu {
 

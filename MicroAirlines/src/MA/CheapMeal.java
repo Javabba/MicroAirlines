@@ -1,15 +1,17 @@
+package MA;
 import java.util.ArrayList;
-// tjena Karl NU GÅR DET DÅLIGT...
-public class NiceMeal extends Meal {
 
-	static ArrayList<NiceMeal> nice = new ArrayList<NiceMeal>();
+public class CheapMeal extends Meal{
+	
+	static ArrayList <CheapMeal> cheap = new ArrayList<CheapMeal>();
 
-	public NiceMeal(String mealName, int price) {
+	public CheapMeal(String mealName, int price) {
 		super(mealName, price);
 	}
-
+	
 	public String getMealName() {
 		return mealName;
+	
 	}
 
 	public void setMealName(String mealName) {
@@ -23,5 +25,5 @@ public class NiceMeal extends Meal {
 	public void setPrice(int price) {
 		this.price = price;
 	}
-
+	
 }

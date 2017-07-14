@@ -1,3 +1,4 @@
+package MA;
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -61,7 +62,8 @@ public static void mainMenu(){
 		break;
 		
 		case "2": 
-//				BusinessLogic.doUnbooking();
+				BusinessLogic.doUnbooking();
+				customerMenu();
 		break; 
 		
 		case "0": 
@@ -73,9 +75,9 @@ public static void mainMenu(){
 		public static void personelMenu() {
 			System.out.println("|------------------------MICRO AIRLINES-----------------------|");
 			System.out.println("|...............Flight or fight is not a question.............|");
-			System.out.println("|         1.) List Flight       |       4.) Add Flight        |");
-			System.out.println("|         2.) List Booking      |       5.) Add Plane    	  |");
-			System.out.println("|         3.) Profit     	    |       6.) List Booking      |");
+			System.out.println("|         1.) List Flight       |       4.) *Add Flight       |");
+			System.out.println("|         2.) List Booking      |       5.) *Add Plane     	  |");
+			System.out.println("|         3.) Unbook a passenger|       6.) Check profit      |");
 			System.out.println("|                        0.) Main Menu.                       |");
 			System.out.println("|-------------------------------------------------------------|");
 			String val = in.nextLine();
@@ -92,23 +94,26 @@ public static void mainMenu(){
 			break;
 			
 			case "2": 
-	//				BusinessLogic.Karl();
+					BusinessLogic.doListBooking();
+					personelMenu();
 			break; 
 			
 			case "3": 
-	//				BusinessLogic.Karl();
+					BusinessLogic.doUnbookPassenger();
+					personelMenu();
 			break; 
 			
 			case "4": 
-	//           	BusinessLogic.Karl();
+					personelMenu();
 			break; 
 						
 			case "5": 
-	//				BusinessLogic.Karl();
+					personelMenu();
 			break; 
 						
 			case "6": 
-	//		 		BusinessLogic.Karl();
+			 		BusinessLogic.doCheckProfit();
+			 		personelMenu();
 			break; 
 						
 			case "7": 

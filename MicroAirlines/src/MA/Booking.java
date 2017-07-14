@@ -1,3 +1,4 @@
+package MA;
 import java.util.Random;
 
 public class Booking {
@@ -13,6 +14,8 @@ public class Booking {
 	
 	private boolean wantToEat;
 	private Meal selectedMeal;
+	
+	private int seatNumber;
 	
 	
 	public Booking(String name, Flight flight, TicketClassesEnum ticketClass,   boolean wantToEat, Meal selectedMeal) {
@@ -94,6 +97,16 @@ public class Booking {
 
 	public Meal getSelectedMeal() {
 		return selectedMeal;
+	}
+
+
+	public int getSeatNumber() {
+		return seatNumber;
+	}
+
+
+	public void setSeatNumber(int seatNumber) {
+		this.seatNumber = seatNumber;
 	}
 
 

@@ -1,8 +1,9 @@
+package MA;
 import java.util.ArrayList;
 
 public class MicroAirlines {
 	
-	public static ArrayList<Flight> flights = new ArrayList<Flight>();
+	static ArrayList<Flight> flights = new ArrayList<Flight>();
 
 	
 	public static void main(String[] args) {

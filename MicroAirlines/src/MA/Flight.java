@@ -1,3 +1,4 @@
+package MA;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -104,36 +105,40 @@ public class Flight {
 		System.out.println(" To: "+destination.getName());
 		System.out.println("Using a "+plane.getModel());
 		System.out.println();
-		System.out.println("Seats First class");
-		System.out.println("----------------------------------------");
-		for (int i=0; i< firstclassBookings.length; i++) {
-			System.out.print(fStr("Seat "+(i+1)+" ", 10));
-			if ( firstclassBookings[i] == null) System.out.println(fStr("<empty>",25)); 
-			else {
-				System.out.print(fStr(firstclassBookings[i].getPassengerName(),25));		
-
-				if (firstclassBookings[i].isWantToEat()) {
-					System.out.println(" < "+firstclassBookings[i].getSelectedMeal()+" >");
-				} else System.out.println(" <no food ordered >");
-				
-			
-			}
-		}
-		System.out.println("\nSeats Economy class");
-		System.out.println("----------------------------------------");
-		for (int i=0; i< economyBookings.length; i++) {
-			System.out.print(fStr("Seat "+(i+1)+" ", 10));
-			if ( economyBookings[i] == null) System.out.println(fStr("<empty>", 25)); 
-			else {
-				System.out.print(fStr(economyBookings[i].getPassengerName(),25));
-				
-				if (economyBookings[i].isWantToEat()) {
-					System.out.println(" < "+economyBookings[i].getSelectedMeal()+" >");
-				} else System.out.println(" < no food ordered >");
-				
-			}
-		}
-		System.out.println("----------------------------------------");
+		
+//		System.out.println("Seats First class");
+//		System.out.println("----------------------------------------");
+//		for (int i=0; i< firstclassBookings.length; i++) {
+//			System.out.print(fStr("Seat "+(i+1)+" ", 10));
+//			if ( firstclassBookings[i] == null) System.out.println(fStr("<empty>",25)); 
+//			else {
+//				System.out.print(fStr(firstclassBookings[i].getPassengerName(),25));		
+//
+//				if (firstclassBookings[i].isWantToEat()) {
+//					System.out.println(" < "+firstclassBookings[i].getSelectedMeal()+" >");
+//				} else System.out.println(" <no food ordered >");
+//				
+//			
+//			}
+//		}
+//		System.out.println("\nSeats Economy class");
+//		System.out.println("----------------------------------------");
+//		for (int i=0; i< economyBookings.length; i++) {
+//			System.out.print(fStr("Seat "+(i+1)+" ", 10));
+//			if ( economyBookings[i] == null) System.out.println(fStr("<empty>", 25)); 
+//			else {
+//				System.out.print(fStr(economyBookings[i].getPassengerName(),25));
+//				
+//				if (economyBookings[i].isWantToEat()) {
+//					System.out.println(" < "+economyBookings[i].getSelectedMeal()+" >");
+//				} else System.out.println(" < no food ordered >");
+//				
+//			}
+//		}
+//		System.out.println("----------------------------------------");
+		
+	BusinessLogic.printSeatList(this, true);
+		
 	}
 
 
@@ -145,25 +150,31 @@ public class Flight {
 		return -1;
 	}
 	
-	public boolean book(Booking newBooking) {
+	public int book(Booking newBooking) {
 		int seat=-1;
 		
 		if (newBooking.getTicketClass()==TicketClassesEnum.ECONOMY) {
 			seat = firstFree(economyBookings);
-			if (seat>=0) 
+			if (seat>=0) {
 				economyBookings[seat]=newBooking;
+				seat += this.firstclassBookings.length;
+				newBooking.setSeatNumber(seat);
+			}
 			else
-				return false;
+				return -1;
 		} else {
 			seat = firstFree(firstclassBookings);
-			if (seat>=0) 
+			if (seat>=0) {
 				firstclassBookings[seat]=newBooking;
+				seat++;
+				newBooking.setSeatNumber(seat);
+			}
 			else
-				return false;
+				return -1;
 		}
 			
 		
-		return true;
+		return seat;
 	}
 	
 	public static String fStr(String in, int len) {

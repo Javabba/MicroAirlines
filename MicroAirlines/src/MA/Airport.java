@@ -1,3 +1,4 @@
+package MA;
 //Test
 public class Airport {
 	private String name;
