@@ -51,21 +51,22 @@ public class MicroAirlines {
 		Booking b1 = new Booking("Anders Andersson", flights.get(0), TicketClassesEnum.ECONOMY, false, null);
 		Booking b2 = new Booking("Bertil Bo", flights.get(0), TicketClassesEnum.ECONOMY , false, null);
 		Booking b3 = new Booking("Conrad Canin", flights.get(0), TicketClassesEnum.FIRSTCLASS, true, NiceMeal.nice.get(1));
-		Booking b4 = new Booking("David Duke", flights.get(0), TicketClassesEnum.ECONOMY , false, null);
+		Booking b4 = new Booking("David Duke", flights.get(0), TicketClassesEnum.ECONOMY , true, NiceMeal.nice.get(3));
 		Booking b5 = new Booking("Erik Eriksson", flights.get(0), TicketClassesEnum.ECONOMY , true, CheapMeal.cheap.get(1));
-		Booking b6 = new Booking("Filip Filipsson", flights.get(0), TicketClassesEnum.FIRSTCLASS, false, null);
+		Booking b6 = new Booking("Filip Filipsson", flights.get(0), TicketClassesEnum.FIRSTCLASS, true, NiceMeal.nice.get(2));
 		Booking b7 = new Booking("Gustaf Gustavsson", flights.get(0), TicketClassesEnum.ECONOMY, false, null);
 		Booking b8 = new Booking("Helge Helgesson", flights.get(0), TicketClassesEnum.FIRSTCLASS,  false, null);
 		
 		flights.get(0).book(b1); 
 		flights.get(0).book(b2);
-		flights.get(0).book(b3);
+		flights.get(0).book(b5);
 		flights.get(0).book(b4);
 		flights.get(0).book(b5);
 		flights.get(0).book(b6);
 		flights.get(0).book(b7);
 		flights.get(0).book(b8);		
 		
+		BusinessLogic.printTicket(b1);
 		//flights.get(0).print();
 		
 		//BusinessLogic.printFlightList();
@@ -78,10 +79,11 @@ public class MicroAirlines {
 		
 		
 		
-		
 		//while(true);
 		
-		Menu.mainMenu();
+//		Menu.mainMenu();
+		
+		
 		
 
 	}

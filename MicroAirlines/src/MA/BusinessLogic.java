@@ -93,34 +93,46 @@ public class BusinessLogic {
 		
 	}
 	
-	private static void printTicket(Booking newBooking) {
+	static void printTicket(Booking newBooking) {
 		
 		String nr = newBooking.getBookingNr();
 		String name = newBooking.getPassengerName();
 		TicketClassesEnum type = newBooking.getTicketClass();
+		String seat = ""+(newBooking.getSeatNumber());
 		Flight flight = newBooking.getFlight();
-		String meal = newBooking.getSelectedMeal().getMealName();
+		String meal=""; 
+		
+		if (newBooking.getSelectedMeal()!=null) {
+			meal=newBooking.getSelectedMeal().getMealName();	
+		}else{
+		    meal ="not included ";
+		 }
 		int FlightPrice = newBooking.getFlightPrice();
 		int MealPrice =  newBooking.getMealPrice();
 		String TicketPrice =""+ (FlightPrice + MealPrice); // Obs!! TOM String "" + interna inom paranteser gör så allt blir parsat till en string...Karl är BRUTAL!
 	
 		String payed = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
-		DateTimeFormatter dfFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+//		DateTimeFormatter dfFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 		String checkIn = newBooking.getFlight().getDeparture().minusHours(1).toString().replace("T", " ");
+		int centeredMeal = 30-(meal.length()/2);
+		
+		meal = String.format("%"+centeredMeal+"s%s%"+centeredMeal+"s", "",meal,"");
 		
 		System.out.println("|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|");
 		System.out.println("|                     MicroAirlines - TICKET                        |");
 		System.out.println("| |---------------------------------------------------------------| |");
-		System.out.println("| |    Booking nr: " + nr + " " + fStr(type.toString(),42) +"| |");     // LÄGG TILL SEATNUMBER PÅ DENNA RAD get funktionen finns inte än
+		System.out.println("| |     Passenger: " + fStr(name,47)+"| |");
+		System.out.println("| |    Booking nr: " + nr + " " + fStr(type.toString(),12)+ "Seat: "+ fStr(seat.toString(),24)+"| |");
 		System.out.println("| |        Flight: " + fStr(flight.toString(),47) +"| |");
 		System.out.println("| |                                                               | |");
-		System.out.println("| |----------------------Inflight catering------------------------| |");
-		System.out.println("| |  " + fStr(meal.toString(),61) +"| |");
+		System.out.println("| |---------------------Inflight catering-------------------------| |");
+//		System.out.println("| |  " + fStr(meal.toString(),61) +"| |");
+		System.out.println("| |"+ meal +"  | |");
 		System.out.println("| |---------------------------------------------------------------| |");
-		System.out.println("| |          " + payed + " Payed in Cash: SEK " + fStr(TicketPrice,15)  + "  | |");
+		System.out.println("| |           " + payed + " Payed in Cash: SEK " + fStr(TicketPrice,15)  + " | |");
 		System.out.println("| |   Check in at least 1 hour before takeoff: " + checkIn +"   | |");
 		System.out.println("|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|");
-		System.out.println();
+		System.out.println(meal);
 		
 		
 		
