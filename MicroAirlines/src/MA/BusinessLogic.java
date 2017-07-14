@@ -114,9 +114,10 @@ public class BusinessLogic {
 		String payed = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
 //		DateTimeFormatter dfFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 		String checkIn = newBooking.getFlight().getDeparture().minusHours(1).toString().replace("T", " ");
-		int centeredMeal = 30-(meal.length()/2);
+		int centeredMeal1= 30-(meal.length()/2);
+		int centeredMeal2 = 30-(meal.length()/2) + meal.length()%2 +1;
 		
-		meal = String.format("%"+centeredMeal+"s%s%"+centeredMeal+"s", "",meal,"");
+		meal = fStr(String.format("%"+centeredMeal1+"s%s%"+centeredMeal2+"s", "",meal,""), 61);
 		
 		System.out.println("|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|");
 		System.out.println("|                     MicroAirlines - TICKET                        |");
