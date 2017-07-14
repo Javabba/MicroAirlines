@@ -49,24 +49,37 @@ public class MicroAirlines {
 		
 		
 		Booking b1 = new Booking("Anders Andersson", flights.get(0), TicketClassesEnum.ECONOMY, false, null);
-		Booking b2 = new Booking("Bertil Bo", flights.get(0), TicketClassesEnum.ECONOMY , false, null);
-		Booking b3 = new Booking("Conrad Canin", flights.get(0), TicketClassesEnum.FIRSTCLASS, true, NiceMeal.nice.get(1));
-		Booking b4 = new Booking("David Duke", flights.get(0), TicketClassesEnum.ECONOMY , true, NiceMeal.nice.get(3));
-		Booking b5 = new Booking("Erik Eriksson", flights.get(0), TicketClassesEnum.ECONOMY , true, CheapMeal.cheap.get(1));
-		Booking b6 = new Booking("Filip Filipsson", flights.get(0), TicketClassesEnum.FIRSTCLASS, true, NiceMeal.nice.get(2));
-		Booking b7 = new Booking("Gustaf Gustavsson", flights.get(0), TicketClassesEnum.ECONOMY, false, null);
-		Booking b8 = new Booking("Helge Helgesson", flights.get(0), TicketClassesEnum.FIRSTCLASS,  false, null);
+		Booking b2 = new Booking("Bertil Bodén", flights.get(0), TicketClassesEnum.ECONOMY , false, null);
+		Booking b3 = new Booking("Cajsa Canin", flights.get(0), TicketClassesEnum.FIRSTCLASS, true, NiceMeal.nice.get(1));
+		Booking b4 = new Booking("David Davidsson", flights.get(0), TicketClassesEnum.ECONOMY , false, null);
 		
+		Booking b5 = new Booking("Erik Eriksson", flights.get(1), TicketClassesEnum.ECONOMY , true, CheapMeal.cheap.get(1));
+		Booking b6 = new Booking("Filippa Filipsson", flights.get(1), TicketClassesEnum.FIRSTCLASS, true, NiceMeal.nice.get(0));
+		Booking b7 = new Booking("Gustaf Gustavsson", flights.get(1), TicketClassesEnum.ECONOMY, true, CheapMeal.cheap.get(0));
+		Booking b8 = new Booking("Helge Helgesson", flights.get(1), TicketClassesEnum.FIRSTCLASS,  false, null);
+		
+		Booking b9 = new Booking("Ida Idegran", flights.get(2), TicketClassesEnum.ECONOMY , true, CheapMeal.cheap.get(1));
+		Booking b10 = new Booking("Johanna Jester", flights.get(2), TicketClassesEnum.FIRSTCLASS, true, NiceMeal.nice.get(3));
+		Booking b11 = new Booking("Kurt Klant", flights.get(2), TicketClassesEnum.ECONOMY, false, null);
+		Booking b12 = new Booking("Linda Ledig", flights.get(2), TicketClassesEnum.FIRSTCLASS, true, NiceMeal.nice.get(2));
+		
+		
+		
+	
 		flights.get(0).book(b1); 
 		flights.get(0).book(b2);
 		flights.get(0).book(b5);
 		flights.get(0).book(b4);
-		flights.get(0).book(b5);
-		flights.get(0).book(b6);
-		flights.get(0).book(b7);
-		flights.get(0).book(b8);		
+		flights.get(1).book(b5);
+		flights.get(1).book(b6);
+		flights.get(1).book(b7);
+		flights.get(1).book(b8);	
+		flights.get(2).book(b9);
+		flights.get(2).book(b10);
+		flights.get(2).book(b11);
+		flights.get(2).book(b12);	
 		
-		BusinessLogic.printTicket(b1);
+//		BusinessLogic.printTicket(b1);
 		//flights.get(0).print();
 		
 		//BusinessLogic.printFlightList();
@@ -81,7 +94,7 @@ public class MicroAirlines {
 		
 		//while(true);
 		
-//		Menu.mainMenu();
+		Menu.mainMenu();
 		
 		
 		

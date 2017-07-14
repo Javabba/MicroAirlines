@@ -258,8 +258,42 @@ public class BusinessLogic {
 	}
 
 	public static void doUnbooking() {
-		// TODO Auto-generated method stub
 		
+		System.out.println("What booking code do you want to unbook?");
+		String bookingCode = in.nextLine().toUpperCase();
+		
+		Flight f=null;
+		int seat = 0;
+		
+		bookingFound: 
+			for (int i=0; i<MicroAirlines.flights.size(); i++) {
+			f=MicroAirlines.flights.get(i);
+					
+			for (int j=0; j<f.getFirstclassBookings().length; j++) {	
+				if (f.getFirstclassBookings()[j]!=null)
+					if (f.getFirstclassBookings()[j].getBookingNr().equals(bookingCode)) {
+						seat=f.getFirstclassBookings()[j].getSeatNumber();
+						break bookingFound;					
+				}
+			}
+			
+			for (int j=0; j<f.getEconomyBookings().length; j++) {	
+				if (f.getEconomyBookings()[j]!=null)
+					if (f.getEconomyBookings()[j].getBookingNr().equals(bookingCode)) {
+						seat=f.getEconomyBookings()[j].getSeatNumber();
+						break bookingFound;					
+				}
+			}					
+		}
+		
+		if (seat==0 || f==null) {
+			System.out.println("Booking code "+bookingCode+" not found!");
+			return;
+		}
+		
+	//	System.out.println("Seat = "+seat);
+
+		unbookSeat(f, seat);		
 	}
 
 	public static void doListBooking() {
