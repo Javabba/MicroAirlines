@@ -73,13 +73,13 @@ public static void mainMenu(){
 		
 	}
 		public static void personelMenu() {
-			System.out.println("|------------------------MICRO AIRLINES-----------------------|");
-			System.out.println("|...............Flight or fight is not a question.............|");
-			System.out.println("|         1.) List Flight       |       4.) *Add Flight       |");
-			System.out.println("|         2.) List Booking      |       5.) *Add Plane     	  |");
-			System.out.println("|         3.) Unbook a passenger|       6.) Check profit      |");
-			System.out.println("|                        0.) Main Menu.                       |");
-			System.out.println("|-------------------------------------------------------------|");
+			System.out.println("|------------------------MICRO AIRLINES------------------------|");
+			System.out.println("|...............Flight or fight is not a question..............|");
+			System.out.println("|         1.) List Flight        |       4.) *Add Flight       |");
+			System.out.println("|         2.) List Booking codes |       5.) *Add Plane        |");
+			System.out.println("|         3.) Unbook a passenger |       6.) Check profit      |");
+			System.out.println("|                        0.) Main Menu.                        |");
+			System.out.println("|--------------------------------------------------------------|");
 			String val = in.nextLine();
 			
 			switch (val) {
@@ -90,7 +90,7 @@ public static void mainMenu(){
 			break;
 			case "1":
 					BusinessLogic.doListFlights();
-					personelMenu();
+					personelMenu(); 
 			break;
 			
 			case "2": 
