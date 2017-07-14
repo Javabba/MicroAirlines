@@ -168,7 +168,7 @@ public class BusinessLogic {
 		}
 	}
 		
-	static public void printSeatList(Flight f, boolean singleNumber) {
+	static public void printSeatListFood(Flight f, boolean singleNumber) {
 		int seat=1;//start with seat 1
 		
 		System.out.println("Seats First class");
@@ -208,7 +208,38 @@ public class BusinessLogic {
 		
 	}
 		
+	static public void printSeatListCode(Flight f, boolean singleNumber) {
+		int seat=1;//start with seat 1
 		
+		System.out.println("Seats First class");
+
+		for (int i=0; i< f.firstclassBookings.length; i++) {
+			System.out.print(fStr("Seat "+seat+" ", 10));
+			if ( f.firstclassBookings[i] == null) System.out.println(fStr("<empty>",25)); 
+			else {
+				System.out.print(fStr(f.firstclassBookings[i].getPassengerName(),25));		
+				System.out.println("Booking code: "+f.firstclassBookings[i].getBookingNr());
+			}
+			seat++;
+		}
+		if (singleNumber==false) // if not single number then reset seat between firstclass/economy
+			seat=1; 
+		
+		System.out.println("\nSeats Economy class");
+		
+
+		for (int i=0; i< f.economyBookings.length; i++) {
+			System.out.print(fStr("Seat "+seat+" ", 10));
+			if ( f.economyBookings[i] == null) System.out.println(fStr("<empty>", 25)); 
+			else {
+				System.out.print(fStr(f.economyBookings[i].getPassengerName(),25));
+				System.out.println("Booking code: "+f.economyBookings[i].getBookingNr());		
+			}
+			seat++;
+		}
+
+		
+	}		
 		
 	public static String fStr(String in, int len) {
 		return (in+"                                                            ").substring(0, len);
@@ -220,7 +251,21 @@ public class BusinessLogic {
 	}
 
 	public static void doListBooking() {
-		// TODO Auto-generated method stub
+		BusinessLogic.printFlightList();
+		
+		int flightIdx=-1;
+		
+		do {
+			try {
+				System.out.println("What flight do you want to list?");
+				flightIdx = Integer.parseInt(in.nextLine());
+				break;
+			} catch (Exception e) {
+				System.out.println("Invalid number");
+			}
+		} while (true);	
+		
+		printSeatListCode(MicroAirlines.flights.get(flightIdx), true);
 		
 	}
 
@@ -239,7 +284,7 @@ public class BusinessLogic {
 			}
 		} while (true);
 			
-		printSeatList(MicroAirlines.flights.get(flightIdx), true);
+		printSeatListCode(MicroAirlines.flights.get(flightIdx), true);
 		
 		int seatNumber=-1;
 		

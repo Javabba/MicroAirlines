@@ -137,7 +137,7 @@ public class Flight {
 //		}
 //		System.out.println("----------------------------------------");
 		
-	BusinessLogic.printSeatList(this, true);
+	BusinessLogic.printSeatListFood(this, true);
 		
 	}
 
