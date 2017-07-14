@@ -158,6 +158,7 @@ public class Flight {
 			if (seat>=0) {
 				economyBookings[seat]=newBooking;
 				seat += this.firstclassBookings.length;
+				seat++;
 				newBooking.setSeatNumber(seat);
 			}
 			else
