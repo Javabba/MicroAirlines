@@ -84,7 +84,7 @@ public class MicroAirlines {
 		
 		//BusinessLogic.printFlightList();
 		
-	
+		BusinessLogic.doCheckProfit();
 		//BusinessLogic.doBooking();
 		
 		//flights.get(0).print();
@@ -94,7 +94,7 @@ public class MicroAirlines {
 		
 		//while(true);
 		
-		Menu.mainMenu();
+	//	Menu.mainMenu();
 		
 		
 		

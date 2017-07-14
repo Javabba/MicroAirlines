@@ -399,7 +399,9 @@ public class BusinessLogic {
 		
 		profit = totalFood+totalTicket;
 		profit *= 0.3;
-		
+	
+		String headLine = "Buissnes of flight "+ f.getCode();
+		System.out.println(headLine);
 		System.out.println("totalFood="+totalFood);
 		System.out.println("totalTicket="+totalTicket);
 		System.out.println("Profit ="+profit);
