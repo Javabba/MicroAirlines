@@ -37,7 +37,7 @@ public class Booking {
 	private String getNewBookingNr() {		
 		String bNR="";
 		
-		final String alphabet = "0123456789ABCDEFGHIJKLMNOPXYZ";
+		final String alphabet = "0123456789ABCDEFGHIJKLMNPQRSTUVWXYZ";
         final int N = alphabet.length();
     
          Random r = new Random();
