@@ -40,7 +40,7 @@ public class MicroAirlines {
 		
 		NiceMeal.nice.add(new NiceMeal("GooseliverPie with Caviar and really expensive sauce", 999));
 		NiceMeal.nice.add(new NiceMeal("Cognacs Flambered Grouse with Hunter Potatoes", 499));
-		NiceMeal.nice.add(new NiceMeal("Sleep Smoked Reindeer Sadle med Västerbotten Cheese Sause and Dollarpotatoes", 599));
+		NiceMeal.nice.add(new NiceMeal("Smoked Reindeer with Västerbotten sauce and Dollarpotatoes", 599));
 		NiceMeal.nice.add(new NiceMeal("LobsterSoup with garlic bread and champagne", 399));
 
 		CheapMeal.cheap.add(new CheapMeal("Pigwash with Water and Bread", 99));
@@ -74,6 +74,7 @@ public class MicroAirlines {
 		//BusinessLogic.doBooking();
 		
 		//flights.get(0).print();
+		
 		
 		
 		

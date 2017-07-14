@@ -1,4 +1,6 @@
 package MA;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class BusinessLogic {
@@ -92,7 +94,33 @@ public class BusinessLogic {
 	}
 	
 	private static void printTicket(Booking newBooking) {
-		// TODO Auto-generated method stub ///////////////////////////////////////////////////////////////
+		
+		String nr = newBooking.getBookingNr();
+		String name = newBooking.getPassengerName();
+		TicketClassesEnum type = newBooking.getTicketClass();
+		Flight flight = newBooking.getFlight();
+		String meal = newBooking.getSelectedMeal().getMealName();
+		int FlightPrice = newBooking.getFlightPrice();
+		int MealPrice =  newBooking.getMealPrice();
+		String TicketPrice =""+ (FlightPrice + MealPrice); // Obs!! TOM String "" + interna inom paranteser gör så allt blir parsat till en string...Karl är BRUTAL!
+	
+		String payed = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+		DateTimeFormatter dfFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+		String checkIn = newBooking.getFlight().getDeparture().minusHours(1).toString().replace("T", " ");
+		
+		System.out.println("|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|");
+		System.out.println("|                     MicroAirlines - TICKET                        |");
+		System.out.println("| |---------------------------------------------------------------| |");
+		System.out.println("| |    Booking nr: " + nr + " " + fStr(type.toString(),42) +"| |");     // LÄGG TILL SEATNUMBER PÅ DENNA RAD get funktionen finns inte än
+		System.out.println("| |        Flight: " + fStr(flight.toString(),47) +"| |");
+		System.out.println("| |                                                               | |");
+		System.out.println("| |----------------------Inflight catering------------------------| |");
+		System.out.println("| |  " + fStr(meal.toString(),61) +"| |");
+		System.out.println("| |---------------------------------------------------------------| |");
+		System.out.println("| |          " + payed + " Payed in Cash: SEK " + fStr(TicketPrice,15)  + "  | |");
+		System.out.println("| |   Check in at least 1 hour before takeoff: " + checkIn +"   | |");
+		System.out.println("|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|");
+		System.out.println();
 		
 		
 		
