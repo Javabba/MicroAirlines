@@ -48,7 +48,7 @@ public class BusinessLogic {
 		
 		
 		do {
-			System.out.println("Do you want to order food?");
+			System.out.println("Do you want to order food?(y/n)");
 			temp = in.nextLine().substring(0,1).toUpperCase();
 		} while ( (!temp.equals("Y"))  && !temp.equals("N")) ;
 		
