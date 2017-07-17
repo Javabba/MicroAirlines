@@ -231,7 +231,13 @@ public class BusinessLogic {
 	}		
 		
 	public static String fStr(String in, int len) {
-		return (in+"                                                            ").substring(0, len);
+		if (len<0) {
+			String ut ="                                                            "+in;
+			ut=ut.substring(ut.length()+len);
+			return ut;
+		} else {		
+			return (in+"                                                            ").substring(0, len);
+		}
 	}
 
 	public static void doUnbooking() {
