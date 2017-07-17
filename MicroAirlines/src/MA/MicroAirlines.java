@@ -94,13 +94,13 @@ public class MicroAirlines {
 		
 		//while(true);
 		
-		//Menu.mainMenu();
-		
-		System.out.println("X"+BusinessLogic.fStr("gurka", 25)+"X");
-		System.out.println("X"+BusinessLogic.fStr("gurka", -25)+"X");
-		System.out.println("X"+BusinessLogic.fStr("gurka", 25)+"X");
 		
 		
+//		System.out.println("X"+BusinessLogic.fStr("gurka", 25)+"X");
+//		System.out.println("X"+BusinessLogic.fStr("gurka", -25)+"X");
+//		System.out.println("X"+BusinessLogic.fStr("gurka", 25)+"X");
+		
+		Menu.mainMenu();
 
 	}
 	
