@@ -346,7 +346,7 @@ public class BusinessLogic {
 				
 	}
 
-	private static int integerInput(String text, int count) {
+	public static int integerInput(String text, int count) {
 		int temp=-1;
 		boolean valid=false;
 		
