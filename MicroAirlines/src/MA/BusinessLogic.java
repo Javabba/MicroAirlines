@@ -117,7 +117,7 @@ public class BusinessLogic {
 		int centeredMeal1= 30-(meal.length()/2);
 		int centeredMeal2 = 30-(meal.length()/2) + meal.length()%2 +1;
 		
-		meal = fStr(String.format("%"+centeredMeal1+"s%s%"+centeredMeal2+"s", "",meal,""), 61);
+		meal = fStr(String.format("%"+centeredMeal1+"s%s%"+centeredMeal2+"s", "",meal,""), 61); // centrerad text
 		
 		System.out.println("|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|");
 		System.out.println("|                     MicroAirlines - TICKET                        |");
@@ -400,9 +400,9 @@ public class BusinessLogic {
 		profit = totalFood+totalTicket;
 		profit *= 0.3;
 		
-		System.out.println("totalFood="+totalFood);
-		System.out.println("totalTicket="+totalTicket);
-		System.out.println("Profit ="+profit);
+		System.out.println("totalFood      = "+totalFood);
+		System.out.println("totalTicket = "+totalTicket);
+		System.out.println("Profit       = "+profit);
 				
 	}
 

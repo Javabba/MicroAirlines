@@ -80,6 +80,9 @@ public class MicroAirlines {
 		flights.get(2).book(b12);	
 		
 //		BusinessLogic.printTicket(b1);
+		
+		BusinessLogic.doCheckProfit();
+		
 		//flights.get(0).print();
 		
 		//BusinessLogic.printFlightList();
@@ -94,7 +97,7 @@ public class MicroAirlines {
 		
 		//while(true);
 		
-		Menu.mainMenu();
+		//Menu.mainMenu();
 		
 		
 		
