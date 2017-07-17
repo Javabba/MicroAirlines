@@ -105,39 +105,8 @@ public class Flight {
 		System.out.println(" To: "+destination.getName());
 		System.out.println("Using a "+plane.getModel());
 		System.out.println();
-		
-//		System.out.println("Seats First class");
-//		System.out.println("----------------------------------------");
-//		for (int i=0; i< firstclassBookings.length; i++) {
-//			System.out.print(fStr("Seat "+(i+1)+" ", 10));
-//			if ( firstclassBookings[i] == null) System.out.println(fStr("<empty>",25)); 
-//			else {
-//				System.out.print(fStr(firstclassBookings[i].getPassengerName(),25));		
-//
-//				if (firstclassBookings[i].isWantToEat()) {
-//					System.out.println(" < "+firstclassBookings[i].getSelectedMeal()+" >");
-//				} else System.out.println(" <no food ordered >");
-//				
-//			
-//			}
-//		}
-//		System.out.println("\nSeats Economy class");
-//		System.out.println("----------------------------------------");
-//		for (int i=0; i< economyBookings.length; i++) {
-//			System.out.print(fStr("Seat "+(i+1)+" ", 10));
-//			if ( economyBookings[i] == null) System.out.println(fStr("<empty>", 25)); 
-//			else {
-//				System.out.print(fStr(economyBookings[i].getPassengerName(),25));
-//				
-//				if (economyBookings[i].isWantToEat()) {
-//					System.out.println(" < "+economyBookings[i].getSelectedMeal()+" >");
-//				} else System.out.println(" < no food ordered >");
-//				
-//			}
-//		}
-//		System.out.println("----------------------------------------");
-		
-	BusinessLogic.printSeatListFood(this, true);
+			
+		BusinessLogic.printSeatListFood(this, true);
 		
 	}
 
@@ -176,6 +145,23 @@ public class Flight {
 			
 		
 		return seat;
+	}
+	
+	public int freeSeatCount(TicketClassesEnum e) {
+		int freeSeats=0;
+		if (e==TicketClassesEnum.FIRSTCLASS) {
+			for (int i=0; i<firstclassBookings.length; i++) {
+				if (firstclassBookings[i] == null)
+					freeSeats++;
+			}		
+		} else {
+			for (int i=0; i<economyBookings.length; i++) {
+				if (economyBookings[i] == null)
+					freeSeats++;			
+			}
+		}
+		
+		return freeSeats;
 	}
 	
 	public static String fStr(String in, int len) {

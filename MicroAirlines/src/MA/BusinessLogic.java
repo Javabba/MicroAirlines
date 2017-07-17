@@ -22,17 +22,7 @@ public class BusinessLogic {
 		printFlightList();
 		
 		
-		int flightIdx=-1;
-		
-		do {
-			try {
-				System.out.println("What flight do you want to book?");
-				flightIdx = Integer.parseInt(in.nextLine());
-				break;
-			} catch (Exception e) {
-				System.out.println("Invalid number");
-			}
-		} while (true);
+		int flightIdx=integerInput("What flight do you want to book?", MicroAirlines.flights.size());
 		
 		String temp;
 		do {
@@ -48,7 +38,7 @@ public class BusinessLogic {
 		
 		
 		do {
-			System.out.println("Do you want to order food?");
+			System.out.println("Do you want to order food?(y/n)");
 			temp = in.nextLine().substring(0,1).toUpperCase();
 		} while ( (!temp.equals("Y"))  && !temp.equals("N")) ;
 		
@@ -61,21 +51,15 @@ public class BusinessLogic {
 
 			int mealIdx=-1;
 			
-			do {
-				try {
-					System.out.println("What food do you want to order?");
-					mealIdx = Integer.parseInt(in.nextLine());
-					break;
-				} catch (Exception e) {
-					System.out.println("Invalid number");
-				}
-			} while (true);
 			
-			if (ticket==TicketClassesEnum.ECONOMY) 
+			
+			if (ticket==TicketClassesEnum.ECONOMY) {
+				mealIdx = integerInput("What food do you want to order?", CheapMeal.cheap.size() );
 				selectedMeal=CheapMeal.cheap.get(mealIdx);
-			else
+			} else {
+				mealIdx = integerInput("What food do you want to order?", NiceMeal.nice.size() );
 				selectedMeal=NiceMeal.nice.get(mealIdx);
-			
+			}
 		};
 				
 		
@@ -92,6 +76,8 @@ public class BusinessLogic {
 			
 		
 	}
+
+
 	
 	static void printTicket(Booking newBooking) {
 		
@@ -117,7 +103,7 @@ public class BusinessLogic {
 		int centeredMeal1= 30-(meal.length()/2);
 		int centeredMeal2 = 30-(meal.length()/2) + meal.length()%2 +1;
 		
-		meal = fStr(String.format("%"+centeredMeal1+"s%s%"+centeredMeal2+"s", "",meal,""), 61); // centrerad text
+		meal = fStr(String.format("%"+centeredMeal1+"s%s%"+centeredMeal2+"s", "",meal,""), 61);
 		
 		System.out.println("|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|");
 		System.out.println("|                     MicroAirlines - TICKET                        |");
@@ -158,18 +144,8 @@ public class BusinessLogic {
 		
 		BusinessLogic.printFlightList();
 		
-		int flightIdx=-1;
+		int flightIdx=integerInput("What flight do you want to print?", MicroAirlines.flights.size());
 		
-		do {
-			try {
-				System.out.println("What flight do you want to print?");
-				flightIdx = Integer.parseInt(in.nextLine());
-				break;
-			} catch (Exception e) {
-				System.out.println("Invalid number");
-			}
-		} while (true);
-			
 		MicroAirlines.flights.get(flightIdx).print();
 		
 	}
@@ -300,17 +276,7 @@ public class BusinessLogic {
 	public static void doListBooking() {
 		BusinessLogic.printFlightList();
 		
-		int flightIdx=-1;
-		
-		do {
-			try {
-				System.out.println("What flight do you want to list?");
-				flightIdx = Integer.parseInt(in.nextLine());
-				break;
-			} catch (Exception e) {
-				System.out.println("Invalid number");
-			}
-		} while (true);	
+		int flightIdx=integerInput("What flight do you want to list?", MicroAirlines.flights.size());
 		
 		printSeatListCode(MicroAirlines.flights.get(flightIdx), true);
 		
@@ -319,31 +285,12 @@ public class BusinessLogic {
 	public static void doUnbookPassenger() {
 		BusinessLogic.printFlightList();
 		
-		int flightIdx=-1;
+		int flightIdx=integerInput("What flight do you want to unbook from?", MicroAirlines.flights.size());
 		
-		do {
-			try {
-				System.out.println("What flight do you want to unbook from?");
-				flightIdx = Integer.parseInt(in.nextLine());
-				break;
-			} catch (Exception e) {
-				System.out.println("Invalid number");
-			}
-		} while (true);
-			
 		printSeatListCode(MicroAirlines.flights.get(flightIdx), true);
 		
-		int seatNumber=-1;
-		
-		do {
-			try {
-				System.out.println("What seat do you want to unbook?");
-				seatNumber = Integer.parseInt(in.nextLine());
-				break;
-			} catch (Exception e) {
-				System.out.println("Invalid number");
-			}
-		} while (true);		
+		int seatNumber=integerInput("What seat do you want to unbook?", MicroAirlines.flights.get(flightIdx).economyBookings.length +   
+										MicroAirlines.flights.get(flightIdx).firstclassBookings.length );
 		
 		unbookSeat(MicroAirlines.flights.get(flightIdx), seatNumber);
 				
@@ -365,18 +312,9 @@ public class BusinessLogic {
 	public static void doCheckProfit() {
 		BusinessLogic.printFlightList();
 		
-		int flightIdx=-1;
+		int flightIdx=-integerInput("What flight do you want to get economic info about?", MicroAirlines.flights.size());
 		
-		do {
-			try {
-				System.out.println("What flight do you want to get economic info about?");
-				flightIdx = Integer.parseInt(in.nextLine());
-				break;
-			} catch (Exception e) {
-				System.out.println("Invalid number");
-			}
-		} while (true);
-		
+	
 		Flight f=MicroAirlines.flights.get(flightIdx);
 			
 		int totalFood=0;
@@ -399,14 +337,40 @@ public class BusinessLogic {
 		
 		profit = totalFood+totalTicket;
 		profit *= 0.3;
-		
-		System.out.println("totalFood      = "+totalFood);
-		System.out.println("totalTicket = "+totalTicket);
-		System.out.println("Profit       = "+profit);
+	
+		String headLine = "Buissnes of flight "+ f.getCode();
+		System.out.println(headLine);
+		System.out.println("totalFood="+totalFood);
+		System.out.println("totalTicket="+totalTicket);
+		System.out.println("Profit ="+profit);
 				
 	}
 
-	
+	public static int integerInput(String text, int count) {
+		int temp=-1;
+		boolean valid=false;
+		
+		do {
+			do {
+				try {
+					System.out.println(text);
+					temp = Integer.parseInt(in.nextLine());
+					break;
+				} catch (Exception e) {
+					System.out.println("Invalid number!");
+				}
+			} while (true);
+			
+			if (temp>=0 && temp<count)
+				valid=true;
+			else
+				System.out.println("Number out of range!");
+			
+		} while(!valid);
+		
+		
+		return temp;
+	}	
 	
 
 }
