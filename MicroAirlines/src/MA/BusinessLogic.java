@@ -119,9 +119,6 @@ public class BusinessLogic {
 		System.out.println("| |           " + payed + " Payed in Cash: SEK " + fStr(TicketPrice,15)  + " | |");
 		System.out.println("| |   Check in at least 1 hour before takeoff: " + checkIn +"   | |");
 		System.out.println("|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|");
-		System.out.println(meal);
-		
-		
 		
 	}
 
@@ -318,7 +315,7 @@ public class BusinessLogic {
 	public static void doCheckProfit() {
 		BusinessLogic.printFlightList();
 		
-		int flightIdx=-integerInput("What flight do you want to get economic info about?", MicroAirlines.flights.size());
+		int flightIdx=integerInput("What flight do you want to get economic info about?", MicroAirlines.flights.size());
 		
 	
 		Flight f=MicroAirlines.flights.get(flightIdx);
@@ -344,13 +341,115 @@ public class BusinessLogic {
 		profit = totalFood+totalTicket;
 		profit *= 0.3;
 	
-		String headLine = "Buissnes of flight "+ f.getCode();
+//		String headLine = "Buissnes of flight "+ f.getCode();
+//		System.out.println(headLine);
+//		System.out.println("totalFood="+totalFood);
+//		System.out.println("totalTicket="+totalTicket);
+//		System.out.println("Profit ="+profit);
+		
+		
+//		System.out.println("totalFood="+totalFood);
+//		System.out.println("totalTicket="+totalTicket);
+//		System.out.println("Profit ="+profit);
+				
+		////////////////////////////////////////////////////////////////////////////////
+		////////////// VÄLKOMMEN TILL AVDELNINGEN FÖR KNASPROGRAMMERING ////////////////
+		////////////////////////////////////////////////////////////////////////////////
+		
+		profit = totalFood+totalTicket; // de parametrar jag fick att jobba med
+		profit *= 0.3;					//                -"-
+//		System.out.println("totalFood = "+totalFood); // Karls ursprungskod
+//		System.out.println("totalTicket = "+totalTicket);
+//		System.out.println("Profit = "+profit);
+		
+		
+		String headLine = "Buissnes of flight "+ f.getCode() + "  " +(f.getDeparture().toString().replace("T", " ")
+				+ " "+ f.toString().substring(22));  // headline crypto
+		
+		Integer all = totalFood + totalTicket; // summan omformateras 
+		String allString = fStr(all.toString() + ":-",9) + "|";
+//		System.out.println(allString); // testprint av formateringen med :- och ett |
+		
+		Integer marginIn = profit; // profit omformateras
+		String margin = fStr(marginIn.toString() + ":-",9) + "|";
+//		System.out.println(margin); // testprint igen
+		
+		Integer foodIn = totalFood; // totalFood omformatertas
+		String food = fStr(foodIn.toString() + ":-", 9) + "|";
+//		System.out.println(food); // testprint...
+		
+		int numberOfFirstClassSeatsSold = 0; // loopar fram antal sålda stolar
+		for (int i=0; i< f.firstclassBookings.length; i++) {
+			if ( f.firstclassBookings[i]!=null) {
+				numberOfFirstClassSeatsSold ++;
+			}
+		}
+		
+		int numberOfEconomyClassSeatsSold = 0; // loopar fram antal sålda stolar
+		for (int i=0; i< f.economyBookings.length; i++) {
+			if ( f.economyBookings[i]!=null) {
+				numberOfEconomyClassSeatsSold ++;
+			}
+		}
+//		System.out.println("1:a klass sålda: " + numberOfFirstClassSeatsSold); //testprint
+//		System.out.println("2:a klass sålda: " + numberOfEconomyClassSeatsSold); //testprint
+		
+		//////////////////////////////////osålda stolar//////////////////////////////
+		int numberOfFirstClassSeatsNOTsold = f.economyBookings.length - numberOfFirstClassSeatsSold;
+		int numberOfEconomyClassSeatsNOTsold = f.firstclassBookings.length - numberOfEconomyClassSeatsSold;
+//		System.out.println("1:a klass osålda: " + numberOfFirstClassSeatsNOTsold); //testprint
+//		System.out.println("2:a klass osålda: " + numberOfEconomyClassSeatsNOTsold); //testprint
+		
+		////////// jobbar fram priserna //////(man måste ju kunna ändra priset i framtiden REA! osv med nån snittsig funktion)
+		Integer FirstClassPrice = TicketClassesEnum.FIRSTCLASS.price();
+		Integer EconomyClassPrice = TicketClassesEnum.ECONOMY.price();
+		String FirstPrice = fStr(FirstClassPrice.toString() + ":-",8) + "|";
+		String EconomyPrice = fStr(EconomyClassPrice.toString() + ":-",7) + "|";
+//		System.out.println("Pris 1:a klass:" + FirstPrice); //testprint
+//		System.out.println("Pris 2:a klass: " + EconomyPrice); //testprint
+		
+		Integer totalMoney = (FirstClassPrice * numberOfFirstClassSeatsSold) + EconomyClassPrice * numberOfEconomyClassSeatsSold;
+		Integer totalLost = (FirstClassPrice * numberOfFirstClassSeatsNOTsold) + EconomyClassPrice * numberOfEconomyClassSeatsNOTsold;
+		
+		
+		
+		////Test av nya formatfunktionen $();
+		//System.out.printf($(12) + $(123) + $(1234) + $(12345) + $(12345));
+		//System.out.println($(123));
+		//System.out.println($(1234));
+		//System.out.println($(12345));
+		//System.out.println($(123456));
+		//System.out.println();
+		//System.out.println();
+		
+		
+		
 		System.out.println(headLine);
-		System.out.println("totalFood="+totalFood);
-		System.out.println("totalTicket="+totalTicket);
-		System.out.println("Profit ="+profit);
+		System.out.println("-------------------------------------------------------------------------");
+		System.out.println("| Seats Sold"+" | "+ "1stClass Total" +" | "+ "Unsold 1st Class"  +" | "+ "Lost money 1st class" +" | ");
+		System.out.println("|"+fStr(""+numberOfFirstClassSeatsSold, -8)+"    |       "+ $(numberOfFirstClassSeatsSold*FirstClassPrice)+ fStr(""+numberOfFirstClassSeatsNOTsold, -14)+"    |             "+ $(numberOfFirstClassSeatsNOTsold*FirstClassPrice));
+		System.out.println("-------------------------------------------------------------------------");
+		System.out.println("| Seats Sold"+" | "+ "2ndClass Total" +" | "+ "Unsold 2nd Class"  +" | "+ "Lost money 2nd class" +" |");
+		System.out.println("|"+fStr(""+numberOfEconomyClassSeatsSold, -8)+"    |       "+ $(numberOfEconomyClassSeatsSold*EconomyClassPrice)+ fStr(""+numberOfEconomyClassSeatsNOTsold, -14)+"    |             "+ $(numberOfEconomyClassSeatsNOTsold*EconomyClassPrice));
+		System.out.println("-------------------------------------------------------------------------");
+		System.out.println("||    TOTAL TICKET CASHFLOW: "  +$(totalMoney) +"| "+ "  TOTAL TICKET LOST: " + $(totalLost) +"|");
+		System.out.println("-------------------------------------------------------------------------");
+		System.out.println("|||  FOOD CASHFLOW:"+$(totalFood) +"|  TOTAL PROFIT food + tickets: " + $(profit) +"||");
+		System.out.println("-------------------------------------------------------------------------");
+		System.out.println();
+		
+		
 				
 	}
+	
+	static String $(int number) {
+		Integer x = number;
+		String karl =x.toString().substring(0) + ":- |";
+		String out = fStr(karl,-10);
+		return out;
+	}
+	
+	
 
 	public static int integerInput(String text, int count) {
 		int temp=-1;

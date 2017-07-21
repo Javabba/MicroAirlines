@@ -7,6 +7,8 @@ public class MicroAirlines {
 
 	
 	public static void main(String[] args) {
+		
+		// Initialise test data!
 
 		Plane plane1=new Plane(6, 4, "DC0");
 		Plane plane2=new Plane(10, 8, "DC1");
@@ -24,20 +26,7 @@ public class MicroAirlines {
 		flights.add(new Flight("SK378", ap2, ap3, "2017-08-01 12:00", plane3));
 		flights.add(new Flight("SK379", ap3, ap2, "2017-08-01 20:00", plane3));
 		
-//		flights.add(new Flight("SK158", ap1, ap2, "2017-08-02 08:00", plane1));		
-//		flights.add(new Flight("SK159", ap2, ap1, "2017-08-02 18:00", plane1));
-//		flights.add(new Flight("SK214", ap1, ap3, "2017-08-02 10:00", plane2));
-//		flights.add(new Flight("SK215", ap3, ap1, "2017-08-02 16:00", plane2));
-//		flights.add(new Flight("SK380", ap2, ap3, "2017-08-02 12:00", plane3));
-//		flights.add(new Flight("SK381", ap3, ap2, "2017-08-02 20:00", plane3));		
-		
-//		flights.add(new Flight("SK160", ap1, ap2, "2017-08-03 08:00", plane1));		
-//		flights.add(new Flight("SK161", ap2, ap1, "2017-08-03 18:00", plane1));
-//		flights.add(new Flight("SK216", ap1, ap3, "2017-08-03 10:00", plane2));
-//		flights.add(new Flight("SK217", ap3, ap1, "2017-08-03 16:00", plane2));
-//		flights.add(new Flight("SK382", ap2, ap3, "2017-08-03 12:00", plane3));
-//		flights.add(new Flight("SK383", ap3, ap2, "2017-08-03 20:00", plane3));	
-		
+
 		NiceMeal.nice.add(new NiceMeal("GooseliverPie with Caviar and really expensive sauce", 999));
 		NiceMeal.nice.add(new NiceMeal("Cognacs Flambered Grouse with Hunter Potatoes", 499));
 		NiceMeal.nice.add(new NiceMeal("Smoked Reindeer with Västerbotten sauce and Dollarpotatoes", 599));
@@ -63,9 +52,6 @@ public class MicroAirlines {
 		Booking b11 = new Booking("Kurt Klant", flights.get(2), TicketClassesEnum.ECONOMY, false, null);
 		Booking b12 = new Booking("Linda Ledig", flights.get(2), TicketClassesEnum.FIRSTCLASS, true, NiceMeal.nice.get(2));
 		
-		
-		
-	
 		flights.get(0).book(b1); 
 		flights.get(0).book(b2);
 		flights.get(0).book(b3);
@@ -78,37 +64,11 @@ public class MicroAirlines {
 		flights.get(2).book(b10);
 		flights.get(2).book(b11);
 		flights.get(2).book(b12);	
-		
-//		BusinessLogic.printTicket(b1);
-		
-		BusinessLogic.doCheckProfit();
-		
-		//flights.get(0).print();
-		
-		//BusinessLogic.printFlightList();
-		
-	//	BusinessLogic.doCheckProfit();
-		//BusinessLogic.doBooking();
-		
-		//flights.get(0).print();
-		
-		
-		
-		
-		//while(true);
-		
-		
-		
-//		System.out.println("X"+BusinessLogic.fStr("gurka", 25)+"X");
-//		System.out.println("X"+BusinessLogic.fStr("gurka", -25)+"X");
-//		System.out.println("X"+BusinessLogic.fStr("gurka", 25)+"X");
-		
+				
 		Menu.mainMenu();
 
 	}
 	
-	public static String fStr(String in, int len) {
-		return (in+"                                                            ").substring(0, len);
-	}
+
 
 }
